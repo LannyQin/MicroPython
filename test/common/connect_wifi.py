@@ -18,5 +18,14 @@ def connect_wifi(ssid,password,timeout=15,slcn=True):    #stop last and connect 
             return wifi,1
         sleep(0.25)
 
+def wlan_connected_only(func):
+    def decorate(*args,**kwargs):
+        wlan=network.WLAN(network.STA_IF)
+        if wlan.isconnected():
+            return func()
+        else:
+            return 1
+    return dacorate
+
 if __name__ == '__main__':
     connect_wifi('Xiaomi_stream','1qazxsw20plmnko9')
