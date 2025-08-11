@@ -1,10 +1,13 @@
 import urequests
+from common.connect_wifi import wlan_connected_only
 
+@wlan_connected_only
 def _get_weather(city,key):
     url="http://apis.juhe.cn/simpleWeather/query?city="+city+"&key="+key
     response=urequests.get(url)
     return response.json()
 
+@wlan_connected_only
 def get_weather(city,key):
     result=_get_weather(city,key)
     

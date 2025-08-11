@@ -22,4 +22,4 @@ def show_characters(oled_screen,character_hex_list,x,y,height,width):
         character_hex=character_hex_list[i]
         x_now=x+width*i
         show_character(oled_screen,character_hex,x_now,y, height, width)
-    oled_screen.show()
+    #oled_screen.show()

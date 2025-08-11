@@ -23,7 +23,7 @@ def wlan_connected_only(func):
     def decorate(*args,**kwargs):
         wlan=network.WLAN(network.STA_IF)
         if wlan.isconnected():
-            return func()
+            return func(*args,**kwargs)
         else:
             return 1
     return decorate

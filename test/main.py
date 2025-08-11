@@ -19,4 +19,4 @@ settime()
 #打印时间
 print(rtc.datetime())
 
-# import show_weather
+import show_weather
