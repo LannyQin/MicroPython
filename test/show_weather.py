@@ -14,6 +14,7 @@ oled=SSD1306_I2C(128,64,i2c,address)
 settings=Settings()
 rtc=RTC()
 week=['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
+week_zh=['周一','周二','周三','周四','周五','周六','周日']
 
 font = ufont.BMFont("font/dengxian12.bmf")
 oled.fill(0)
@@ -62,10 +63,11 @@ def show_weather_2(timer_obj):
         time='%02d:%02d:%02d'%(t[4],t[5],t[6])
         time_list=[number_32_dict[character] for character in time]
         show_characters(oled,time_list,0,0,32,16)
-        oled.text('%04d/%02d/%02d %s'%(t[0],t[1],t[2],week[t[3]]),0,32)
-        font.text(oled,'%s %02dC %02d'%(weather.info,weather.temperature,weather.humidity)+'%',0,40,show=False)
+        font.text(oled,'%04d/%02d/%02d%s'%(t[0],t[1],t[2],week_zh[t[3]]),0,28,show=False)
+        font.text(oled,'%s  %02dC  %02d'%(weather.info,weather.temperature,weather.humidity)+'%',0,40,show=False)
         font.text(oled,'%s%s 空气指数%d'%(weather.direct,weather.power,weather.aqi),0,52,show=False)
-        font.text(oled,'更新于%s'%check_time,61,40)
+        font.text(oled,'更新于',92,28,show=False)
+        font.text(oled,'%s'%check_time,97,40)
 
 def _settime(timer_obj):
     settime()
