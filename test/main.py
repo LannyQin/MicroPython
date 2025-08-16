@@ -1,3 +1,5 @@
+import test_ps2
+
 from machine import RTC
 import webrepl
 

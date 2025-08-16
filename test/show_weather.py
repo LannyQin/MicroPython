@@ -5,7 +5,7 @@ from common.get_weather import get_weather
 from common.oled_show_character import show_characters
 from common.connect_wifi import settime
 from font.number_32 import number_32_dict
-import ufont
+from libs import ufont
 
 i2c=SoftI2C(sda=Pin(21),scl=Pin(22))
 address=i2c.scan()[0]
